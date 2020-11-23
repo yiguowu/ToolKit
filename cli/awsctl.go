@@ -25,7 +25,8 @@ func listDispatch(params lib.ParamSet) {
 
 }
 
-func dispatch(action string, params lib.ParamSet) {
+func dispatch(params lib.ParamSet) {
+	action := os.Args[1]
 	switch action {
 	case "create":
 		creationDispatch(params)
@@ -51,6 +52,6 @@ func main() {
 	if len(os.Args) == 1 {
 		fmt.Println("awsctl version", Version)
 	} else {
-		dispatch(os.Args[1], params)
+		dispatch(params)
 	}
 }
